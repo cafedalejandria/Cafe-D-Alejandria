@@ -474,11 +474,12 @@
       <label>Cantidad:
         <input type="number" class="cantidad" min="1" value="1" />
       </label>
-      <hr>
+      <button type="button" class="boton eliminar" onclick="this.parentElement.remove()">🗑️ Quitar</button>
+      <hr> 
     `;
     contenedor.appendChild(div);
   }
-  <button type="button" class="boton eliminar" onclick="this.parentElement.remove()">🗑️ Quitar</button>
+  
 
 
   function calcularTotal() {
