@@ -5,7 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Café D’Alejandría - Catálogo</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
   <style>
+    .tabla-pesos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tabla-pesos th, .tabla-pesos td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.tabla-pesos th {
+  background-color: #204c3b;
+  color: white;
+}
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
   background-image: url('hojas.png');
@@ -250,7 +268,23 @@
 <section class="presentaciones">
   <h2>Presentaciones disponibles</h2>
   <p><strong>Café tostado:</strong> empaques de fibra de caña, con válvulas desgasificadoras unidireccionales y cierre hermético zipper. Tostión media.</p>
-  <p><strong>Pesos:</strong> 4.4 oz (125g), 8.8 oz (250g), 12 oz (340g), 16 oz (454g), 32 oz (907g), 80 oz (2267g).</p>
+  <h3>Pesos disponibles</h3>
+<table class="tabla-pesos">
+  <thead>
+    <tr>
+      <th>Onzas (oz)</th>
+      <th>Gramos (g)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>4.4 oz</td><td>125 g</td></tr>
+    <tr><td>8.8 oz</td><td>250 g</td></tr>
+    <tr><td>12 oz</td><td>340 g</td></tr>
+    <tr><td>16 oz</td><td>454 g</td></tr>
+    <tr><td>32 oz</td><td>907 g</td></tr>
+    <tr><td>80 oz</td><td>2267 g</td></tr>
+  </tbody>
+</table>
   <p><strong>Café verde:</strong> bolsa grainpro con yute, presentación según reglamentación de exportación.</p>
 </section>
 
