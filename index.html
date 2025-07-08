@@ -234,6 +234,14 @@
 .item-cafe label {
   font-weight: 500;
 }
+    .boton.eliminar {
+  background-color: #a33;
+  margin-top: 0.5rem;
+}
+
+.boton.eliminar:hover {
+  background-color: #822;
+}
 
   </style>
 </head>
@@ -470,6 +478,8 @@
     `;
     contenedor.appendChild(div);
   }
+  <button type="button" class="boton eliminar" onclick="this.parentElement.remove()">🗑️ Quitar</button>
+
 
   function calcularTotal() {
     const variedades = document.querySelectorAll(".variedad");
