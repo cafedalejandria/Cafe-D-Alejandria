@@ -225,6 +225,16 @@
   font-weight: bold;
   color: #204c3b;
 }
+    .item-cafe {
+  margin-bottom: 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.item-cafe label {
+  font-weight: 500;
+}
+
   </style>
 </head>
 <body>
@@ -377,33 +387,18 @@
   <section class="cotizador">
   <h2>Calcula tu pedido</h2>
   <form id="formulario-cotizador">
-    <label for="variedad">Variedad:</label>
-    <select id="variedad">
-      <option value="Geisha">Geisha</option>
-      <option value="Pacamara">Pacamara</option>
-      <option value="Bourbon Rosado">Bourbon Rosado</option>
-      <option value="Tabi">Tabi</option>
-      <option value="Castillo">Castillo</option>
-    </select>
+    <div id="items-cotizador">
+      <!-- Aquí se agregarán las filas -->
+    </div>
 
-    <label for="peso">Peso:</label>
-    <select id="peso">
-      <option value="125">125g</option>
-      <option value="250">250g</option>
-      <option value="340">340g</option>
-      <option value="454">454g</option>
-      <option value="907">907g</option>
-      <option value="2267">2267g</option>
-    </select>
-
-    <label for="cantidad">Cantidad:</label>
-    <input type="number" id="cantidad" min="1" value="1" />
-
-    <button type="button" onclick="calcularPrecio()">Calcular</button>
+    <button type="button" class="boton" onclick="agregarItem()">+ Agregar variedad</button>
+    <button type="button" class="boton" onclick="calcularTotal()">Calcular total</button>
   </form>
 
-  <p id="resultado" class="resultado-precio">Selecciona una variedad para ver el precio estimado.</p>
+  <p id="resultado" class="resultado-precio">Agrega al menos una variedad para ver el total estimado.</p>
+  <a id="link-whatsapp" class="boton" style="display:none;" target="_blank">Enviar por WhatsApp</a>
 </section>
+
 
 <section class="contacto">
   <h2>Contacto</h2>
@@ -417,6 +412,7 @@
 </footer>
 
 <script>
+  // Mostrar/ocultar info de productos
   document.querySelectorAll('.producto').forEach(carta => {
     const btn = carta.querySelector('.boton');
     const info = carta.querySelector('.info');
@@ -430,7 +426,9 @@
       }
     });
   });
-    const preciosBase = {
+
+  // Cotizador dinámico
+  const preciosBase = {
     "Geisha":    { "125": 15000, "250": 28000, "340": 38000, "454": 48000, "907": 90000, "2267": 180000 },
     "Pacamara":  { "125": 12000, "250": 22000, "340": 30000, "454": 40000, "907": 78000, "2267": 155000 },
     "Bourbon Rosado": { "125": 13000, "250": 24000, "340": 32000, "454": 42000, "907": 80000, "2267": 160000 },
@@ -438,18 +436,73 @@
     "Castillo":  { "125": 10000, "250": 19000, "340": 27000, "454": 35000, "907": 68000, "2267": 135000 },
   };
 
-  function calcularPrecio() {
-    const variedad = document.getElementById("variedad").value;
-    const peso = document.getElementById("peso").value;
-    const cantidad = parseInt(document.getElementById("cantidad").value);
+  function agregarItem() {
+    const contenedor = document.getElementById("items-cotizador");
 
-    const precioUnitario = preciosBase[variedad][peso];
-    const total = precioUnitario * cantidad;
+    const div = document.createElement("div");
+    div.className = "item-cafe";
+    div.innerHTML = `
+      <label>Variedad:
+        <select class="variedad">
+          <option value="Geisha">Geisha</option>
+          <option value="Pacamara">Pacamara</option>
+          <option value="Bourbon Rosado">Bourbon Rosado</option>
+          <option value="Tabi">Tabi</option>
+          <option value="Castillo">Castillo</option>
+        </select>
+      </label>
 
-    document.getElementById("resultado").textContent =
-      `Total estimado: $${total.toLocaleString("es-CO")} COP`;
+      <label>Peso:
+        <select class="peso">
+          <option value="125">125g</option>
+          <option value="250">250g</option>
+          <option value="340">340g</option>
+          <option value="454">454g</option>
+          <option value="907">907g</option>
+          <option value="2267">2267g</option>
+        </select>
+      </label>
+
+      <label>Cantidad:
+        <input type="number" class="cantidad" min="1" value="1" />
+      </label>
+      <hr>
+    `;
+    contenedor.appendChild(div);
   }
 
+  function calcularTotal() {
+    const variedades = document.querySelectorAll(".variedad");
+    const pesos = document.querySelectorAll(".peso");
+    const cantidades = document.querySelectorAll(".cantidad");
+
+    let total = 0;
+    let mensaje = "Hola, quiero pedir:\n";
+    
+    for (let i = 0; i < variedades.length; i++) {
+      const variedad = variedades[i].value;
+      const peso = pesos[i].value;
+      const cantidad = parseInt(cantidades[i].value);
+      const precioUnitario = preciosBase[variedad][peso];
+      const subtotal = precioUnitario * cantidad;
+      total += subtotal;
+
+      mensaje += `- ${cantidad} x ${variedad} (${peso}g) = $${subtotal.toLocaleString("es-CO")} COP\n`;
+    }
+
+    mensaje += `\nTotal: $${total.toLocaleString("es-CO")} COP`;
+
+    document.getElementById("resultado").textContent = mensaje;
+    const link = `https://wa.me/573147918079?text=${encodeURIComponent(mensaje)}`;
+    const whatsappBtn = document.getElementById("link-whatsapp");
+    whatsappBtn.href = link;
+    whatsappBtn.style.display = "inline-block";
+  }
+
+  // Inicializa con una fila ya lista
+  agregarItem();
 </script>
+
+
 </body>
 </html>
