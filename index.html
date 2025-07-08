@@ -242,7 +242,27 @@
 .boton.eliminar:hover {
   background-color: #822;
 }
+.campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 
+.item-cafe {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.boton.eliminar {
+  background-color: #a33;
+  margin-top: 0.75rem;
+  max-width: fit-content;
+}
+
+.boton.eliminar:hover {
+  background-color: #822;
+}
   </style>
 </head>
 <body>
@@ -445,11 +465,12 @@
   };
 
   function agregarItem() {
-    const contenedor = document.getElementById("items-cotizador");
+  const contenedor = document.getElementById("items-cotizador");
 
-    const div = document.createElement("div");
-    div.className = "item-cafe";
-    div.innerHTML = `
+  const div = document.createElement("div");
+  div.className = "item-cafe";
+  div.innerHTML = `
+    <div class="campos">
       <label>Variedad:
         <select class="variedad">
           <option value="Geisha">Geisha</option>
@@ -474,12 +495,52 @@
       <label>Cantidad:
         <input type="number" class="cantidad" min="1" value="1" />
       </label>
-      <button type="button" class="boton eliminar" onclick="this.parentElement.remove()">🗑️ Quitar</button>
-      <hr> 
-    `;
-    contenedor.appendChild(div);
-  }
-  
+    </div>
+
+    <button type="button" class="boton eliminar" onclick="this.parentElement.remove()">🗑️ Quitar</button>
+    <hr>
+  `;
+  contenedor.appendChild(div);
+}
+function agregarItem() {
+  const contenedor = document.getElementById("items-cotizador");
+
+  const div = document.createElement("div");
+  div.className = "item-cafe";
+  div.innerHTML = `
+    <div class="campos">
+      <label>Variedad:
+        <select class="variedad">
+          <option value="Geisha">Geisha</option>
+          <option value="Pacamara">Pacamara</option>
+          <option value="Bourbon Rosado">Bourbon Rosado</option>
+          <option value="Tabi">Tabi</option>
+          <option value="Castillo">Castillo</option>
+        </select>
+      </label>
+
+      <label>Peso:
+        <select class="peso">
+          <option value="125">125g</option>
+          <option value="250">250g</option>
+          <option value="340">340g</option>
+          <option value="454">454g</option>
+          <option value="907">907g</option>
+          <option value="2267">2267g</option>
+        </select>
+      </label>
+
+      <label>Cantidad:
+        <input type="number" class="cantidad" min="1" value="1" />
+      </label>
+    </div>
+
+    <button type="button" class="boton eliminar" onclick="this.parentElement.remove()">🗑️ Quitar</button>
+    <hr>
+  `;
+  contenedor.appendChild(div);
+}
+
 
 
   function calcularTotal() {
