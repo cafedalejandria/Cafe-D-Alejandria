@@ -424,6 +424,9 @@
   </form>
 
   <p id="resultado" class="resultado-precio">Agrega al menos una variedad para ver el total estimado.</p>
+    <p id="nota-envio" style="font-size: 0.9rem; color: #555; margin-top: -1rem; display: none;">
+  🚚 Este precio no incluye costos de envío.
+</p>
   <a id="link-whatsapp" class="boton" style="display:none;" target="_blank">Enviar por WhatsApp</a>
 </section>
 
@@ -569,6 +572,8 @@ function agregarItem() {
     const whatsappBtn = document.getElementById("link-whatsapp");
     whatsappBtn.href = link;
     whatsappBtn.style.display = "inline-block";
+    document.getElementById("nota-envio").style.display = "block";
+
   }
 
   // Inicializa con una fila ya lista
