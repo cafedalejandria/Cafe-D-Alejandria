@@ -282,7 +282,7 @@
         <p><strong>Proceso:</strong> Honey, natural, lavado suave - 36 h.</p>
         <p><strong>Puntuación:</strong> 86 SCA</p>
       </div>
-      <button class="boton">Ver más</button>
+      <button class="boton ver-mas">Ver más</button>
     </div>
   </div>
 
@@ -295,7 +295,7 @@
         <p><strong>Proceso:</strong> Fermentación 24 h y lavado.</p>
         <p><strong>Puntuación:</strong> 86.5 SCA</p>
       </div>
-      <button class="boton">Ver más</button>
+      <button class="boton ver-mas">Ver más</button>
     </div>
   </div>
 
@@ -308,7 +308,7 @@
         <p><strong>Proceso:</strong> Lavado suave y honey - 36 h.</p>
         <p><strong>Puntuación:</strong> 84.5 SCA</p>
       </div>
-      <button class="boton">Ver más</button>
+      <button class="boton ver-mas">Ver más</button>
     </div>
   </div>
 
@@ -321,7 +321,7 @@
         <p><strong>Proceso:</strong> Lavado suave y honey - 36 h.</p>
         <p><strong>Puntuación:</strong> 85.5 SCA</p>
       </div>
-      <button class="boton">Ver más</button>
+      <button class="boton ver-mas">Ver más</button>
     </div>
   </div>
 
@@ -334,7 +334,7 @@
         <p><strong>Proceso:</strong> Lavado suave y honey - 36 h.</p>
         <p><strong>Puntuación:</strong> 88.25 SCA</p>
       </div>
-      <button class="boton">Ver más</button>
+      <button class="boton ver-mas">Ver más</button>
     </div>
   </div>
 </section>
@@ -439,7 +439,7 @@
     btn.addEventListener('click', () => {
       const visible = info.style.display === 'block';
       document.querySelectorAll('.info').forEach(i => i.style.display = 'none');
-      document.querySelectorAll('.boton').forEach(b => b.textContent = 'Ver más');
+      document.querySelectorAll('.boton.ver-mas').forEach(b => b.textContent = 'Ver más');
       if (!visible) {
         info.style.display = 'block';
         btn.textContent = 'Ver menos';
