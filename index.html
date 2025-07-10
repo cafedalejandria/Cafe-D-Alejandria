@@ -234,13 +234,12 @@
 .item-cafe label {
   font-weight: 500;
 }
-    .boton.eliminar {
-  background-color: #a33;
-  margin-top: 0.5rem;
+ .boton.eliminar {
+  background-color: #ccc;
+  color: #333;
 }
-
 .boton.eliminar:hover {
-  background-color: #822;
+  background-color: #aaa;
 }
 .campos {
   display: flex;
@@ -360,13 +359,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr><td>4.4 oz</td><td>125 g</td></tr>
-    <tr><td>8.8 oz</td><td>250 g</td></tr>
-    <tr><td>12 oz</td><td>340 g</td></tr>
-    <tr><td>16 oz</td><td>454 g</td></tr>
-    <tr><td>32 oz</td><td>907 g</td></tr>
-    <tr><td>80 oz</td><td>2267 g</td></tr>
-  </tbody>
+  <tr><td>4.4 oz</td><td>125 g</td></tr>
+  <tr><td>8.8 oz</td><td>250 g</td></tr>
+  <tr><td>12 oz</td><td>340 g</td></tr>
+  <tr><td>16 oz</td><td>454 g</td></tr>
+</tbody>
 </table>
   <p><strong>Café verde:</strong> bolsa grainpro con yute, presentación según reglamentación de exportación.</p>
 </section>
@@ -459,13 +456,38 @@
   });
 
   // Cotizador dinámico
-  const preciosBase = {
-    "Geisha":    { "125": 15000, "250": 28000, "340": 38000, "454": 48000, "907": 90000, "2267": 180000 },
-    "Pacamara":  { "125": 12000, "250": 22000, "340": 30000, "454": 40000, "907": 78000, "2267": 155000 },
-    "Bourbon Rosado": { "125": 13000, "250": 24000, "340": 32000, "454": 42000, "907": 80000, "2267": 160000 },
-    "Tabi":      { "125": 11000, "250": 21000, "340": 29000, "454": 37000, "907": 72000, "2267": 145000 },
-    "Castillo":  { "125": 10000, "250": 19000, "340": 27000, "454": 35000, "907": 68000, "2267": 135000 },
-  };
+ const preciosBase = {
+  "Geisha": {
+    "125": 25000,
+    "250": 45000,
+    "340": 60000,
+    "454": 79000
+  },
+  "Bourbon Rosado": {
+    "125": 18000,
+    "250": 32000,
+    "340": 45000,
+    "454": 57000
+  },
+  "Tabi": {
+    "125": 16000,
+    "250": 29000,
+    "340": 38000,
+    "454": 50000
+  },
+  "Pacamara": {
+    "125": 16000,
+    "250": 29000,
+    "340": 38000,
+    "454": 50000
+  },
+  "Castillo": {
+    "125": 16000,
+    "250": 28000,
+    "340": 36000,
+    "454": 40000
+  }
+};
 
   function agregarItem() {
   const contenedor = document.getElementById("items-cotizador");
@@ -522,16 +544,12 @@ function agregarItem() {
         </select>
       </label>
 
-      <label>Peso:
-        <select class="peso">
-          <option value="125">125g</option>
-          <option value="250">250g</option>
-          <option value="340">340g</option>
-          <option value="454">454g</option>
-          <option value="907">907g</option>
-          <option value="2267">2267g</option>
-        </select>
-      </label>
+      <select class="peso">
+  <option value="125">125g</option>
+  <option value="250">250g</option>
+  <option value="340">340g</option>
+  <option value="454">454g</option>
+</select>
 
       <label>Cantidad:
         <input type="number" class="cantidad" min="1" value="1" />
