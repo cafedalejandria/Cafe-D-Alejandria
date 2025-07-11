@@ -454,41 +454,18 @@ header img {
     new google.translate.TranslateElement({
       pageLanguage: 'es',
       includedLanguages: 'es,en,pt',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
 
-  function cambiarIdioma(idioma) {
-    const intentosMaximos = 20;
-    let intentos = 0;
-    const intervalo = setInterval(() => {
-      const frame = document.querySelector('iframe.goog-te-menu-frame');
-      if (frame && frame.contentDocument) {
-        const opciones = frame.contentDocument.querySelectorAll('.goog-te-menu2-item span.text');
-        opciones.forEach(opcion => {
-          if (opcion.innerText.toLowerCase().includes(idioma)) {
-            opcion.click();
-            clearInterval(intervalo);
-          }
-        });
-        intentos++;
-      }
-      if (intentos >= intentosMaximos) {
-        clearInterval(intervalo);
-        alert("No se pudo cambiar el idioma. Intenta recargar la página.");
-      }
-    }, 500);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const selector = document.getElementById('idioma-selector');
-    if (selector) {
-      selector.addEventListener('change', () => {
-        const idioma = selector.value;
-        cambiarIdioma(idioma);
-      });
-    }
+  document.addEventListener("DOMContentLoaded", function () {
+    const selector = document.getElementById("idioma-selector");
+    selector.addEventListener("change", function () {
+      const lang = selector.value;
+      const url = new URL(window.location.href);
+      // Añade el parámetro para Google Translate
+      window.location.href = "https://translate.google.com/translate?hl=" + lang + "&sl=es&tl=" + lang + "&u=" + encodeURIComponent(url.href);
+    });
   });
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
