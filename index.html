@@ -259,11 +259,16 @@ header img {
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
-
+.goog-logo-link, .goog-te-gadget span {
+  display: none !important;
+}
+.goog-te-gadget {
+  color: transparent !important;
+}
   </style>
 </head>
 <body>
-  div id="google_translate_element" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+ <div id="google_translate_element" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
   <div style="background-color: #2E3B34; padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: bold; font-size: 0.95rem; color: white; font-family: 'Work Sans', sans-serif;">
     ES | EN
   </div>
@@ -439,27 +444,13 @@ header img {
     });
   });
 </script>
-  <!-- Google Translate -->
+<!-- Google Translate -->
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
       {
         pageLanguage: 'es',
         includedLanguages: 'en,es',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      },
-      'google_translate_element'
-    );
-  }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <!-- Google Translate -->
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'es',
-        includedLanguages: 'es,en',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
       },
