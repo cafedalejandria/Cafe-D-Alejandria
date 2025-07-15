@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -264,7 +265,33 @@ header img {
   color: transparent !important;
 }
 .info .boton.ver-caficultor {
-  margin-top: 0.8rem;  /* Espacio entre el botón principal y el del caficultor */
+  margin-bottom: 0.8rem; /* Espacio con el botón siguiente */
+  display: inline-block;
+}
+.info {
+  display: none;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: #555;
+  background: #f8f8f8;     /* Un fondo claro para diferenciarlo */
+  padding: 1rem;           /* Espacio interno */
+  border-radius: 8px;      /* Bordes redondeados */
+}
+
+/* --- Mejoras visuales --- */
+.info {
+  display: none;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: #555;
+  background: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.info .boton.ver-caficultor {
+  margin-bottom: 0.8rem;
+  display: inline-block;
 }
   </style>
 </head>
@@ -300,7 +327,7 @@ header img {
         <button class="boton ver-caficultor">Ver más del caficultor</button>
         <div class="info-caficultor">
           <img src="orfelina.jpg" alt="Orfelina Escobar" style="width:100%; border-radius:10px; margin-top:1rem;">
-          <p><strong>Orfelina Escobar</strong> es caficultora de Café en<em> Cajibio Cauca</em>, su finca se llama <em>La María</em> y es líder de la asociación de mujeres <strong>Fortaleza y Paz</strong>. Este grupo impulsa la participación femenina en el café y promueve la paz en su comunidad.</p>
+          <p><strong>Orfelina Escobar</strong> es caficultora de Café en<em>Cajibio Cauca</em>, su finca se llama <em>La María</em> y es líder de la asociación de mujeres <strong>Fortaleza y Paz</strong>. Este grupo impulsa la participación femenina en el café y promueve la paz en su comunidad.</p>
         </div>
       </div>
       <button class="boton ver-mas">Ver más</button>
@@ -522,4 +549,3 @@ header img {
 
 </body>
 </html>
-  
