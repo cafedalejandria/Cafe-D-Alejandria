@@ -298,6 +298,19 @@ header img {
   margin-bottom: 0.8rem;
   display: inline-block;
 }
+    .info-caficultor {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.3s ease;
+  padding: 0;
+  opacity: 0;
+}
+
+.info-caficultor.abierto {
+  max-height: 400px;
+  padding: 1rem 0;
+  opacity: 1;
+}
   </style>
 </head>
 <body>
@@ -518,13 +531,10 @@ header img {
         e.preventDefault();
         const visible = infoCaficultor.style.display === 'block';
 
-        if (!visible) {
-          infoCaficultor.style.display = 'block';
-          btnCaficultor.textContent = 'Ver menos del caficultor';
-        } else {
-          infoCaficultor.style.display = 'none';
-          btnCaficultor.textContent = 'Ver más del caficultor';
-        }
+      infoCaficultor.classList.toggle('abierto');
+btnCaficultor.textContent = infoCaficultor.classList.contains('abierto') 
+  ? 'Ver menos del caficultor' 
+  : 'Ver más del caficultor';
       });
     }
   });
