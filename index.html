@@ -311,6 +311,20 @@ header img {
   padding: 1rem 0;
   opacity: 1;
 }
+    .info-caficultor {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.3s ease, opacity 0.3s ease;
+  padding: 0;
+  opacity: 0;
+}
+
+.info-caficultor.abierto {
+  max-height: 400px; /* Ajusta según el contenido */
+  padding: 1rem 0;
+  opacity: 1;
+}
+
   </style>
 </head>
 <body>
@@ -517,24 +531,28 @@ header img {
     const btnCaficultor = prod.querySelector('.ver-caficultor');
     const infoCaficultor = prod.querySelector('.info-caficultor');
 
-    if (infoCaficultor) infoCaficultor.style.display = 'none';
+    // ✅ Inicialmente el bloque del caficultor queda cerrado
+    if (infoCaficultor) infoCaficultor.classList.remove('abierto');
 
+    // ✅ Botón "Ver más" del café con animación suave
     btnCafe.addEventListener('click', (e) => {
       e.preventDefault();
 
       infoCafe.classList.toggle('abierto');
-      btnCafe.textContent = infoCafe.classList.contains('abierto') ? 'Ver menos' : 'Ver más';
+      btnCafe.textContent = infoCafe.classList.contains('abierto')
+        ? 'Ver menos'
+        : 'Ver más';
     });
 
+    // ✅ Botón "Ver más del caficultor" también con animación suave
     if (btnCaficultor) {
       btnCaficultor.addEventListener('click', (e) => {
         e.preventDefault();
-        const visible = infoCaficultor.style.display === 'block';
 
-      infoCaficultor.classList.toggle('abierto');
-btnCaficultor.textContent = infoCaficultor.classList.contains('abierto') 
-  ? 'Ver menos del caficultor' 
-  : 'Ver más del caficultor';
+        infoCaficultor.classList.toggle('abierto');
+        btnCaficultor.textContent = infoCaficultor.classList.contains('abierto')
+          ? 'Ver menos del caficultor'
+          : 'Ver más del caficultor';
       });
     }
   });
