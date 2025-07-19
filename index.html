@@ -280,13 +280,18 @@ header img {
 
 /* --- Mejoras visuales --- */
 .info {
-  display: none;
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  color: #555;
-  background: #f8f8f8;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.3s ease;
+  padding: 0;
+  opacity: 0;
+}
+
+/* Cuando se abre */
+.info.abierto {
+  max-height: 500px; /* suficiente para mostrar todo */
   padding: 1rem;
-  border-radius: 8px;
+  opacity: 1;
 }
 
 .info .boton.ver-caficultor {
@@ -499,38 +504,20 @@ header img {
     const btnCaficultor = prod.querySelector('.ver-caficultor');
     const infoCaficultor = prod.querySelector('.info-caficultor');
 
-    // Ocultar caficultor al inicio
     if (infoCaficultor) infoCaficultor.style.display = 'none';
 
-    btnCafe.addEventListener('click', () => {
-      // Cerrar TODOS los demás productos antes
-      productos.forEach(p => {
-        p.querySelector('.info').style.display = 'none';
-        p.querySelector('.ver-mas').textContent = 'Ver más';
-        const caficultorDiv = p.querySelector('.info-caficultor');
-        if (caficultorDiv) caficultorDiv.style.display = 'none';
-        const btnCaf = p.querySelector('.ver-caficultor');
-        if (btnCaf) btnCaf.textContent = 'Ver más del caficultor';
-      });
+    btnCafe.addEventListener('click', (e) => {
+      e.preventDefault();
 
-      // Mostrar u ocultar el actual
-      if (infoCafe.style.display === 'block') {
-        infoCafe.style.display = 'none';
-        btnCafe.textContent = 'Ver más';
-      } else {
-        infoCafe.style.display = 'block';
-        btnCafe.textContent = 'Ver menos';
-      }
+      infoCafe.classList.toggle('abierto');
+      btnCafe.textContent = infoCafe.classList.contains('abierto') ? 'Ver menos' : 'Ver más';
     });
 
     if (btnCaficultor) {
-      btnCaficultor.addEventListener('click', () => {
+      btnCaficultor.addEventListener('click', (e) => {
+        e.preventDefault();
         const visible = infoCaficultor.style.display === 'block';
-        // Cerrar los otros caficultores
-        document.querySelectorAll('.info-caficultor').forEach(c => c.style.display = 'none');
-        document.querySelectorAll('.ver-caficultor').forEach(c => c.textContent = 'Ver más del caficultor');
 
-        // Mostrar u ocultar el actual
         if (!visible) {
           infoCaficultor.style.display = 'block';
           btnCaficultor.textContent = 'Ver menos del caficultor';
