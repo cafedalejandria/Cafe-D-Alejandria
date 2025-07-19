@@ -301,40 +301,47 @@ footer {
   display: inline-block;
 }
 
-/* ✅ Animación suave para bloques de información (descripción del café) */
+/* ✅ Bloques de información del café */
 .info {
-  max-height: 0; /* empieza cerrado */
-  overflow: hidden;
-  transition: max-height 0.5s ease-out, padding 0.3s ease, opacity 0.3s ease;
-  padding: 0;
-  opacity: 0;
-  margin-top: 1rem;
+  display: none; /* Oculto por defecto */
   font-size: 0.95rem;
+  margin-top: 1rem;
   color: #555;
   background: #f8f8f8; /* fondo claro para diferenciarlo */
+  padding: 1rem; /* espacio interno */
   border-radius: 8px;
+  opacity: 0; /* para transición */
+  transition: opacity 0.3s ease-in-out;
 }
 
-.info.abierto {
-  max-height: 1500px; /* suficiente para cualquier cantidad de texto */
-  padding: 1rem;
+/* Cuando está visible (usado por JS con display:block) */
+.info[style*="display: block"] {
   opacity: 1;
 }
 
-/* ✅ Animación suave para bloques del caficultor */
+.info .boton.ver-caficultor {
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+
+/* ✅ Bloques de información del caficultor */
 .info-caficultor {
-  max-height: 0; /* empieza cerrado */
-  overflow: hidden;
-  transition: max-height 0.5s ease-out, padding 0.3s ease, opacity 0.3s ease;
-  padding: 0;
+  display: none; /* Oculto por defecto */
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  background: #fafafa; /* fondo un poco más claro */
+  padding: 1rem;
+  border-radius: 8px;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.info-caficultor.abierto {
-  max-height: 1500px; /* suficiente para imagen + descripción sin cortarse */
-  padding: 1rem 0;
+/* Cuando el caficultor está visible */
+.info-caficultor[style*="display: block"] {
   opacity: 1;
 }
+
 
   </style>
 </head>
