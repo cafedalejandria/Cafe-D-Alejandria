@@ -7,14 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
   
   <style>
-    .tabla-pesos {
+ .tabla-pesos {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
-.tabla-pesos th, .tabla-pesos td {
+.tabla-pesos th,
+.tabla-pesos td {
   border: 1px solid #ccc;
   padding: 0.75rem;
   text-align: center;
@@ -24,8 +25,14 @@
   background-color: #204c3b;
   color: white;
 }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   background-image: url('hojas.png');
   background-repeat: repeat;
   background-size: 400px auto; /* Ajusta según el tamaño de la imagen */
@@ -36,23 +43,27 @@
   font-family: 'Work Sans', sans-serif;
   line-height: 1.6;
 }
-    header {
-      background: url('Encabezado.png') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      position: relative;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-    }
-    header .contenido-header {
-      position: relative;
-      z-index: 1;
-    }
+
+header {
+  background: url('Encabezado.png') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+header .contenido-header {
+  position: relative;
+  z-index: 1;
+}
+
 header img {
   max-width: 90%;
   max-height: 200px;
@@ -64,128 +75,145 @@ header img {
   margin-right: auto;
 }
 
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-    section {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-    section h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #2E3B34;
-      border-left: 5px solid #2E3B34;
-      padding-left: 0.5rem;
-    }
-    section p {
-      margin-bottom: 1rem;
-    }
-    .catalogo {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-    .producto {
-      background: white;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .producto:hover {
-      transform: translateY(-6px);
-    }
-    .producto img {
-      width: 100%;
-      object-fit: cover;
-    }
-    .contenido {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .contenido h2 {
-      font-size: 1.4rem;
-      margin-bottom: .5rem;
-      font-family: 'Merriweather', serif;
-      color: #204c3b;
-    }
-    .boton {
-      background: #2E3B34;
-      color: #fff;
-      border: none;
-      padding: 0.6rem;
-      font-weight: 600;
-      border-radius: 6px;
-      margin-top: auto;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .boton:hover {
-      background: #3c5c4d;
-    }
-    .info {
-      display: none;
-      font-size: 0.95rem;
-      margin-top: 1rem;
-      color: #555;
-    }
-    .info p {
-      margin-bottom: .5rem;
-    }
-    .presentaciones {
-      background: #f0ede6;
-      padding: 2rem;
-      border-radius: 10px;
-    }
-    .comparacion {
-      overflow-x: auto;
-    }
-    .comparacion table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    .comparacion th, .comparacion td {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-    .comparacion th {
-      background: #204c3b;
-      color: white;
-    }
-    .contacto {
-      background: #2E3B34;
-      color: white;
-      padding: 2rem 1.5rem;
-      border-radius: 12px;
-      text-align: center;
-    }
-    .contacto h2 {
-      color: white;
-    }
-    .contacto a {
-      color: #d4f0da;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 2rem 1rem;
-      color: #888;
-    }
-    .cotizador {
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+section h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2E3B34;
+  border-left: 5px solid #2E3B34;
+  padding-left: 0.5rem;
+}
+
+section p {
+  margin-bottom: 1rem;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.producto {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.producto:hover {
+  transform: translateY(-6px);
+}
+
+.producto img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.contenido {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.contenido h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Merriweather', serif;
+  color: #204c3b;
+}
+
+.boton {
+  background: #2E3B34;
+  color: #fff;
+  border: none;
+  padding: 0.6rem;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-top: auto;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background: #3c5c4d;
+}
+
+.info p {
+  margin-bottom: 0.5rem;
+}
+
+.presentaciones {
+  background: #f0ede6;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.comparacion {
+  overflow-x: auto;
+}
+
+.comparacion table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.comparacion th,
+.comparacion td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.comparacion th {
+  background: #204c3b;
+  color: white;
+}
+
+.contacto {
+  background: #2E3B34;
+  color: white;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.contacto h2 {
+  color: white;
+}
+
+.contacto a {
+  color: #d4f0da;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 2rem 1rem;
+  color: #888;
+}
+
+.cotizador {
   background-color: #f0ede6;
   padding: 2rem;
   border-radius: 10px;
@@ -230,68 +258,88 @@ header img {
   font-weight: bold;
   color: #204c3b;
 }
-    .item-cafe {
+
+.item-cafe {
   margin-bottom: 1rem;
   display: grid;
   gap: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
 }
 
 .item-cafe label {
   font-weight: 500;
 }
- .boton.eliminar {
+
+.boton.eliminar {
   background-color: #ccc;
   color: #333;
 }
+
 .boton.eliminar:hover {
   background-color: #aaa;
 }
+
 .campos {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.item-cafe {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-}
-.goog-logo-link, .goog-te-gadget span {
+.goog-logo-link,
+.goog-te-gadget span {
   display: none !important;
 }
+
 .goog-te-gadget {
   color: transparent !important;
-}
-.info .boton.ver-caficultor {
-  margin-bottom: 0.8rem; /* Espacio con el botón siguiente */
-  display: inline-block;
-}
-.info {
-  display: none;
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  color: #555;
-  background: #f8f8f8;     /* Un fondo claro para diferenciarlo */
-  padding: 1rem;           /* Espacio interno */
-  border-radius: 8px;      /* Bordes redondeados */
-}
-
-/* --- Mejoras visuales --- */
-.info {
-  display: none;
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  color: #555;
-  background: #f8f8f8;
-  padding: 1rem;
-  border-radius: 8px;
 }
 
 .info .boton.ver-caficultor {
   margin-bottom: 0.8rem;
   display: inline-block;
 }
+
+/* ✅ Bloques de información principal (Ver más) */
+.info {
+  display: none;            /* Oculto por defecto */
+  background: #f8f8f8;      /* Fondo claro para diferenciarlo */
+  padding: 1rem;            /* Espacio interno */
+  border-radius: 8px;       /* Bordes redondeados */
+  margin-top: 1rem;         /* Separación superior */
+  font-size: 0.95rem;       /* Tamaño de letra */
+  color: #555;              /* Color del texto */
+  line-height: 1.5;         /* Mejor legibilidad */
+}
+
+.info p {
+  margin-bottom: 0.5rem;    /* Espacio entre párrafos */
+}
+
+.info .boton.ver-caficultor {
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+
+/* ✅ Bloques de información del caficultor */
+.info-caficultor {
+  display: none;            /* Oculto por defecto */
+  background: #fafafa;      /* Fondo un poco más claro */
+  margin-top: 1rem;         /* Separación del contenido superior */
+  padding: 1rem;            /* Espacio interno */
+  border-radius: 8px;       /* Bordes redondeados */
+  font-size: 0.9rem;        /* Tamaño un poco más pequeño */
+  color: #555;              /* Color de texto */
+  line-height: 1.5;         /* Mejor legibilidad */
+}
+
+.info-caficultor img {
+  display: block;
+  max-width: 100%;          /* Que la imagen no se corte */
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
   </style>
 </head>
 <body>
@@ -346,7 +394,7 @@ header img {
         <button class="boton ver-caficultor">Ver más del caficultor</button>
         <div class="info-caficultor">
           <img src="monica.jpeg" alt="Mónica Salazar" style="width:100%; border-radius:10px; margin-top:1rem;">
-          <p>Apasionada del café de especialidad, dedicada a compartir los mejores granos seleccionados con amor y cuidado. Su experiencia y compromiso garantizan una taza única y llena de sabor.</p>
+          <p><strong>Mónica Salazar</strong> Apasionada del café de especialidad, dedicada a compartir los mejores granos seleccionados con amor y cuidado. Su experiencia y compromiso garantizan una taza única y llena de sabor.</p>
         </div>
       </div>
       <button class="boton ver-mas">Ver más</button>
@@ -366,7 +414,7 @@ header img {
         <button class="boton ver-caficultor">Ver más del caficultor</button>
         <div class="info-caficultor">
           <img src="alcides.jpeg" alt="Alcides Martínez" style="width:100%; border-radius:10px; margin-top:1rem;">
-          <p>Creció en una familia cafetera -caficultor de tercera generación- y se encuentra motivado a continuar con esta maravillosa labor familiar.</p>
+          <p> <strong>Alcides Martinez</strong> Creció en una familia cafetera -caficultor de tercera generación- y se encuentra motivado a continuar con esta maravillosa labor familiar.</p>
         </div>
       </div>
       <button class="boton ver-mas">Ver más</button>
@@ -386,7 +434,7 @@ header img {
         <button class="boton ver-caficultor">Ver más del caficultor</button>
         <div class="info-caficultor">
           <img src="mario.jpeg" alt="Mario Martínez" style="width:100%; border-radius:10px; margin-top:1rem;">
-          <p>Productor de café de alta calidad. Comprometido con la familia en la producción ecológica de café. Respetando la base de los recursos.-El suelo y la diversidad- </p>
+          <p><strong>Mario Martinez</strong> Productor de café de alta calidad. Comprometido con la familia en la producción ecológica de café. Respetando la base de los recursos.-El suelo y la diversidad- </p>
         </div>
       </div>
       <button class="boton ver-mas">Ver más</button>
@@ -395,7 +443,7 @@ header img {
 
   <!-- Castillo -->
   <div class="producto">
-    <img src="Castillo.jpeg" alt="Castillo">
+    <img src="Castillo.jpg" alt="Castillo">
     <div class="contenido">
       <h2>Castillo</h2>
       <p><strong>Caficultora:</strong> Gabriela Martínez</p>
@@ -405,8 +453,8 @@ header img {
         <p><strong>Puntuación:</strong> 84.5 SCA</p>
         <button class="boton ver-caficultor">Ver más del caficultor</button>
         <div class="info-caficultor">
-          <img src="gabriela.jpg" alt="Gabriela Martínez" style="width:100%; border-radius:10px; margin-top:1rem;">
-          <p>Hija de cafeteros. Mujer joven rural, maravillada con la cultura cafetera campesina. Su interés es comercializar su café directamente a cafeterías y supermercados</p>
+          <img src="gabriela.jpeg" alt="Gabriela Martínez" style="width:100%; border-radius:10px; margin-top:1rem;">
+          <p><strong>Gabriela Martinez</strong> Hija de cafeteros. Mujer joven rural, maravillada con la cultura cafetera campesina. Su interés es comercializar su café directamente a cafeterías y supermercados</p>
         </div>
       </div>
       <button class="boton ver-mas">Ver más</button>
@@ -498,50 +546,40 @@ header img {
     const btnCaficultor = prod.querySelector('.ver-caficultor');
     const infoCaficultor = prod.querySelector('.info-caficultor');
 
-    // Ocultar caficultor al inicio
-    if (infoCaficultor) infoCaficultor.style.display = 'none';
+    // Ocultamos al inicio
+    if (infoCafe) infoCafe.style.display = "none";
+    if (infoCaficultor) infoCaficultor.style.display = "none";
 
-    btnCafe.addEventListener('click', () => {
-      // Cerrar TODOS los demás productos antes
-      productos.forEach(p => {
-        p.querySelector('.info').style.display = 'none';
-        p.querySelector('.ver-mas').textContent = 'Ver más';
-        const caficultorDiv = p.querySelector('.info-caficultor');
-        if (caficultorDiv) caficultorDiv.style.display = 'none';
-        const btnCaf = p.querySelector('.ver-caficultor');
-        if (btnCaf) btnCaf.textContent = 'Ver más del caficultor';
-      });
+    // Botón Ver más del café
+    btnCafe.addEventListener('click', (e) => {
+      e.preventDefault();
 
-      // Mostrar u ocultar el actual
-      if (infoCafe.style.display === 'block') {
-        infoCafe.style.display = 'none';
-        btnCafe.textContent = 'Ver más';
+      if (infoCafe.style.display === "none") {
+        infoCafe.style.display = "block";
+        btnCafe.textContent = "Ver menos";
       } else {
-        infoCafe.style.display = 'block';
-        btnCafe.textContent = 'Ver menos';
+        infoCafe.style.display = "none";
+        btnCafe.textContent = "Ver más";
       }
     });
 
+    // Botón Ver más del caficultor
     if (btnCaficultor) {
-      btnCaficultor.addEventListener('click', () => {
-        const visible = infoCaficultor.style.display === 'block';
-        // Cerrar los otros caficultores
-        document.querySelectorAll('.info-caficultor').forEach(c => c.style.display = 'none');
-        document.querySelectorAll('.ver-caficultor').forEach(c => c.textContent = 'Ver más del caficultor');
+      btnCaficultor.addEventListener('click', (e) => {
+        e.preventDefault();
 
-        // Mostrar u ocultar el actual
-        if (!visible) {
-          infoCaficultor.style.display = 'block';
-          btnCaficultor.textContent = 'Ver menos del caficultor';
+        if (infoCaficultor.style.display === "none") {
+          infoCaficultor.style.display = "block";
+          btnCaficultor.textContent = "Ver menos del caficultor";
         } else {
-          infoCaficultor.style.display = 'none';
-          btnCaficultor.textContent = 'Ver más del caficultor';
+          infoCaficultor.style.display = "none";
+          btnCaficultor.textContent = "Ver más del caficultor";
         }
       });
     }
   });
 </script>
 
+
 </body>
 </html>
-
