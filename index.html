@@ -301,22 +301,21 @@ footer {
   display: inline-block;
 }
 
-/* ✅ Bloques de información del café */
+/* ✅ Bloques de información principal (Ver más) */
 .info {
-  display: none; /* Oculto por defecto */
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  color: #555;
-  background: #f8f8f8; /* fondo claro para diferenciarlo */
-  padding: 1rem; /* espacio interno */
-  border-radius: 8px;
-  opacity: 0; /* para transición */
-  transition: opacity 0.3s ease-in-out;
+  display: none; /* Oculto por defecto, se mostrará con JS */
+  background: #f8f8f8;       /* Fondo claro para diferenciarlo */
+  padding: 1rem;             /* Espacio interno */
+  border-radius: 8px;        /* Bordes redondeados */
+  margin-top: 1rem;          /* Separación superior */
+  font-size: 0.95rem;        /* Tamaño de letra */
+  color: #555;               /* Color del texto */
+  line-height: 1.5;          /* Mejor legibilidad */
+  transition: opacity 0.3s ease-in-out; /* Efecto suave opcional */
 }
 
-/* Cuando está visible (usado por JS con display:block) */
-.info[style*="display: block"] {
-  opacity: 1;
+.info p {
+  margin-bottom: 0.5rem; /* Espacio entre párrafos */
 }
 
 .info .boton.ver-caficultor {
@@ -326,20 +325,26 @@ footer {
 
 /* ✅ Bloques de información del caficultor */
 .info-caficultor {
-  display: none; /* Oculto por defecto */
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #555;
-  background: #fafafa; /* fondo un poco más claro */
-  padding: 1rem;
-  border-radius: 8px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  display: none;             /* Oculto por defecto */
+  background: #fafafa;       /* Fondo un poco más claro */
+  margin-top: 1rem;          /* Separación del contenido superior */
+  padding: 1rem;             /* Espacio interno */
+  border-radius: 8px;        /* Bordes redondeados */
+  font-size: 0.9rem;         /* Tamaño un poco más pequeño */
+  color: #555;               /* Color de texto */
+  line-height: 1.5;          /* Mejor legibilidad */
+  transition: opacity 0.3s ease-in-out; /* Efecto suave opcional */
 }
 
-/* Cuando el caficultor está visible */
+/* ✅ Pequeño efecto de opacidad cuando aparece */
+.info[style*="display: block"],
 .info-caficultor[style*="display: block"] {
   opacity: 1;
+}
+
+.info,
+.info-caficultor {
+  opacity: 0;
 }
 
 
@@ -549,32 +554,40 @@ footer {
     const btnCaficultor = prod.querySelector('.ver-caficultor');
     const infoCaficultor = prod.querySelector('.info-caficultor');
 
-    // ✅ Inicialmente el bloque del caficultor queda cerrado
-    if (infoCaficultor) infoCaficultor.classList.remove('abierto');
+    // Ocultamos al inicio
+    if (infoCafe) infoCafe.style.display = "none";
+    if (infoCaficultor) infoCaficultor.style.display = "none";
 
-    // ✅ Botón "Ver más" del café con animación suave
+    // Botón Ver más del café
     btnCafe.addEventListener('click', (e) => {
       e.preventDefault();
 
-      infoCafe.classList.toggle('abierto');
-      btnCafe.textContent = infoCafe.classList.contains('abierto')
-        ? 'Ver menos'
-        : 'Ver más';
+      if (infoCafe.style.display === "none") {
+        infoCafe.style.display = "block";
+        btnCafe.textContent = "Ver menos";
+      } else {
+        infoCafe.style.display = "none";
+        btnCafe.textContent = "Ver más";
+      }
     });
 
-    // ✅ Botón "Ver más del caficultor" también con animación suave
+    // Botón Ver más del caficultor
     if (btnCaficultor) {
       btnCaficultor.addEventListener('click', (e) => {
         e.preventDefault();
 
-        infoCaficultor.classList.toggle('abierto');
-        btnCaficultor.textContent = infoCaficultor.classList.contains('abierto')
-          ? 'Ver menos del caficultor'
-          : 'Ver más del caficultor';
+        if (infoCaficultor.style.display === "none") {
+          infoCaficultor.style.display = "block";
+          btnCaficultor.textContent = "Ver menos del caficultor";
+        } else {
+          infoCaficultor.style.display = "none";
+          btnCaficultor.textContent = "Ver más del caficultor";
+        }
       });
     }
   });
 </script>
+
 
 </body>
 </html>
