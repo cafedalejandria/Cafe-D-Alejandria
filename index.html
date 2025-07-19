@@ -303,19 +303,18 @@ footer {
 
 /* ✅ Bloques de información principal (Ver más) */
 .info {
-  display: none; /* Oculto por defecto, se mostrará con JS */
-  background: #f8f8f8;       /* Fondo claro para diferenciarlo */
-  padding: 1rem;             /* Espacio interno */
-  border-radius: 8px;        /* Bordes redondeados */
-  margin-top: 1rem;          /* Separación superior */
-  font-size: 0.95rem;        /* Tamaño de letra */
-  color: #555;               /* Color del texto */
-  line-height: 1.5;          /* Mejor legibilidad */
-  transition: opacity 0.3s ease-in-out; /* Efecto suave opcional */
+  display: none;            /* Oculto por defecto */
+  background: #f8f8f8;      /* Fondo claro para diferenciarlo */
+  padding: 1rem;            /* Espacio interno */
+  border-radius: 8px;       /* Bordes redondeados */
+  margin-top: 1rem;         /* Separación superior */
+  font-size: 0.95rem;       /* Tamaño de letra */
+  color: #555;              /* Color del texto */
+  line-height: 1.5;         /* Mejor legibilidad */
 }
 
 .info p {
-  margin-bottom: 0.5rem; /* Espacio entre párrafos */
+  margin-bottom: 0.5rem;    /* Espacio entre párrafos */
 }
 
 .info .boton.ver-caficultor {
@@ -325,28 +324,22 @@ footer {
 
 /* ✅ Bloques de información del caficultor */
 .info-caficultor {
-  display: none;             /* Oculto por defecto */
-  background: #fafafa;       /* Fondo un poco más claro */
-  margin-top: 1rem;          /* Separación del contenido superior */
-  padding: 1rem;             /* Espacio interno */
-  border-radius: 8px;        /* Bordes redondeados */
-  font-size: 0.9rem;         /* Tamaño un poco más pequeño */
-  color: #555;               /* Color de texto */
-  line-height: 1.5;          /* Mejor legibilidad */
-  transition: opacity 0.3s ease-in-out; /* Efecto suave opcional */
+  display: none;            /* Oculto por defecto */
+  background: #fafafa;      /* Fondo un poco más claro */
+  margin-top: 1rem;         /* Separación del contenido superior */
+  padding: 1rem;            /* Espacio interno */
+  border-radius: 8px;       /* Bordes redondeados */
+  font-size: 0.9rem;        /* Tamaño un poco más pequeño */
+  color: #555;              /* Color de texto */
+  line-height: 1.5;         /* Mejor legibilidad */
 }
 
-/* ✅ Pequeño efecto de opacidad cuando aparece */
-.info[style*="display: block"],
-.info-caficultor[style*="display: block"] {
-  opacity: 1;
+.info-caficultor img {
+  display: block;
+  max-width: 100%;          /* Que la imagen no se corte */
+  border-radius: 10px;
+  margin-top: 1rem;
 }
-
-.info,
-.info-caficultor {
-  opacity: 0;
-}
-
 
   </style>
 </head>
